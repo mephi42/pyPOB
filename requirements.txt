@@ -1,0 +1,4 @@
+click == 8.0.3
+ipython == 7.29.0
+lupa == 1.10
+pycurl == 7.44.1
