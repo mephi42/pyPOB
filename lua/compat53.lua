@@ -68,10 +68,16 @@ function string.format (fmt, ...)
       if c == '%' then
         state = 1
       end
+    elseif c == '+' then
+      state = 2
     else
       if c == 'd' then
-        fmt = string.sub(fmt, 1, i - 1) .. 's' .. string.sub(fmt, i + 1)
-        arg[argno] = tostring(math.floor(arg[argno]))
+        if state == 1 then
+          fmt = string.sub(fmt, 1, i - 1) .. 's' .. string.sub(fmt, i + 1)
+          arg[argno] = tostring(math.floor(arg[argno]))
+        else
+          arg[argno] = math.floor(arg[argno])
+        end
       end
       state = 0
       if c ~= '%' then

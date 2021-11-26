@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e -u -x
+cd "$(dirname "$0")"
+black pyPOB.py test/test_pyPOB.py

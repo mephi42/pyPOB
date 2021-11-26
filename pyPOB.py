@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import base64
+import json
 import os
 import zlib
 
@@ -6,6 +8,7 @@ import click
 import IPython
 from lupa import LuaError, LuaRuntime
 import pycurl
+import requests
 
 basedir = os.path.dirname(os.path.realpath(__file__))
 luadir = os.path.join(basedir, "lua")
@@ -227,6 +230,82 @@ def pob_autoselect_main_skill(lua):
     pob_refresh(lua)
 
 
+def download_item_texts(trade_url):
+    session = requests.Session()
+    # Cloudflare doesn't like requests.
+    session.headers["User-Agent"] = "curl/7.68.0"
+    response = session.get(trade_url)
+    response.raise_for_status()
+    text = response.text
+    i = -1
+    decoder = json.JSONDecoder()
+    while True:
+        i = text.index("{", i + 1)
+        try:
+            t, _ = decoder.raw_decode(text, i)
+        except json.JSONDecodeError:
+            continue
+        try:
+            league = t["league"]
+            state = t["state"]
+        except (TypeError, KeyError):
+            continue
+        break
+    response = session.post(
+        f"https://www.pathofexile.com/api/trade/search/{league}",
+        json={"query": state, "sort": {"price": "asc"}},
+    )
+    response.raise_for_status()
+    item_ids = response.json()["result"]
+    response = session.get(
+        "https://www.pathofexile.com/api/trade/fetch/" + ",".join(item_ids)
+    )
+    response.raise_for_status()
+    return [
+        base64.b64decode(item["item"]["extended"]["text"].encode()).decode()
+        for item in response.json()["result"]
+    ]
+
+
+def pob_add_to_build(lua, item_text):
+    g = lua.globals()
+    items_tab = g.build.itemsTab
+    items_tab.CreateDisplayItemFromRaw(items_tab, item_text.encode())
+    return items_tab.displayItem
+
+
+def pob_fit(lua, item_texts):
+    g = lua.globals()
+    items_tab = g.build.itemsTab
+    calcs_tab = g.build.calcsTab
+    results = []
+    for item_text in item_texts:
+        item_results = {}
+        item = g.new(b"Item", item_text.encode())
+        for slot_name, slot in items_tab.slots.items():
+            if items_tab.IsItemValidForSlot(items_tab, item, slot_name):
+                calc_func, orig_output = calcs_tab.GetMiscCalculator(calcs_tab)
+                orig_output = dict(orig_output)
+                override = lua.table()
+                override[b"repSlotName"] = slot_name
+                override[b"repItem"] = item
+                output = dict(calc_func(override))
+                diffs = {}
+                for key in orig_output.keys() | output.keys():
+                    value = output.get(key, 0)
+                    orig_value = orig_output.get(key, 0)
+                    if not isinstance(value, (int, float)) or not isinstance(
+                        orig_value, (int, float)
+                    ):
+                        continue
+                    diff = value - orig_value
+                    if diff > 0.001 or diff < -0.001:
+                        diffs[key.decode()] = diff
+                item_results[slot_name.decode()] = diffs
+        results.append(item_results)
+    return results
+
+
 @cli.command("download")
 @click.argument("account")
 @click.argument("character")
@@ -235,6 +314,21 @@ def cli_download(account, character):
     load_headless_wrapper(lua)
     pob_download(lua, account, character)
     IPython.embed()
+
+
+@cli.command("fit")
+@click.argument("account")
+@click.argument("character")
+@click.argument("trade_url")
+def cli_fit(account, character, trade_url):
+    lua = make_lua()
+    load_headless_wrapper(lua)
+    pob_download(lua, account, character)
+    pob_autoselect_main_skill(lua)
+    item_texts = download_item_texts(trade_url)
+    results = pob_fit(lua, item_texts)
+    for item, result in zip(item_texts, results):
+        print(f"{item}: {result}")
 
 
 @cli.command("import")

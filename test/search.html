@@ -1,0 +1,1268 @@
+
+<!DOCTYPE html><html lang="en">
+<head>
+<title>Trade - Path of Exile</title><meta name="viewport" content="width=544, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta property="fb:admins" content="100001526026598">
+<meta property="og:image" content="https://web.poecdn.com/image/favicon/ogimage.png?v=1">
+<meta property="og:title" content="Trade - Path of Exile">
+<meta property="og:site_name" content="Path of Exile">
+<meta property="og:type" content="website">
+<meta property="og:keywords" content="path of exile,action rpg,online rpg game,free rpg game">
+<meta property="og:description" content="Path of Exile is a free online-only action RPG under development by Grinding Gear Games in New Zealand.">
+<meta name="keywords" content="path of exile,action rpg,online rpg game,free rpg game">
+<meta name="description" content="Path of Exile is a free online-only action RPG under development by Grinding Gear Games in New Zealand.">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-config" content="https://web.poecdn.com/image/favicon/browserconfig.xml?v=1">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:locale" content="en_US"><link href="https://web.poecdn.com/css/font.css?v=4708f8d6bd53eeadc9778c148b28e361" media="screen" rel="stylesheet" type="text/css">
+<link href="https://web.poecdn.com/image/favicon/apple-touch-icon.png?v=1" rel="apple-touch-icon">
+<link href="https://web.poecdn.com/image/favicon/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180">
+<link href="https://web.poecdn.com/image/favicon/favicon-32x32.png?v=1" rel="icon" sizes="32x32" type="image/png">
+<link href="https://web.poecdn.com/image/favicon/favicon-16x16.png?v=1" rel="icon" sizes="16x16" type="image/png">
+<link href="https://web.poecdn.com/image/favicon/site.webmanifest?v=2" rel="manifest">
+<link href="https://web.poecdn.com/image/favicon/safari-pinned-tab.svg?v=1" rel="mask-icon">
+<link href="https://web.poecdn.com/image/favicon/favicon.ico?v=1" rel="shortcut icon">
+<link href="https://web.poecdn.com/css/trade.css?v=303714fb2607eb07e461b7c93d1a904e" media="screen" rel="stylesheet" type="text/css">            <script type="text/javascript">
+
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-17600449-1', {'sampleRate': 5});
+                ga('set', 'anonymizeIp', false);
+                ga('send', 'pageview');
+
+            </script></head>
+
+<body class="modern trade en_US">
+        <div class="container-fluid full" id="app">
+        <div class="content">
+            <div class="wrapper">
+                <div id="statusBar"><div class="statusBarCenter"></div><div class="statusBarRight"></div><div class="row2 loggedOut"><a class="statusItem" href="/login">LOG IN</a><a class="statusItem" href="/account/create">CREATE ACCOUNT</a><a class="statusItem" href="/support">CONTACT SUPPORT</a></div></div>                <div class="linkBack">
+                    <a href="/">BACK TO MAIN SITE</a>
+                </div>
+                <div class="logo">
+                    <a href="/trade">
+                        <img src="https://web.poecdn.com/image/trade/layout/logo.png">
+                    </a>
+                </div>
+                <div class="language-select"><a href="//www.pathofexile.com/trade"><span class="us-lang active"><img src="https://web.poecdn.com/image/lang/GB.png" alt="English"></span></a>
+<a href="//br.pathofexile.com/trade"><span class="br-lang"><img src="https://web.poecdn.com/image/lang/BR.png" alt="Português Brasileiro"></span></a>
+<a href="//ru.pathofexile.com/trade"><span class="ru-lang"><img src="https://web.poecdn.com/image/lang/RU.png" alt="Русский"></span></a>
+<a href="//th.pathofexile.com/trade"><span class="th-lang"><img src="https://web.poecdn.com/image/lang/TH.png" alt="ไทย"></span></a>
+<a href="//de.pathofexile.com/trade"><span class="de-lang"><img src="https://web.poecdn.com/image/lang/DE.png" alt="Deutsch"></span></a>
+<a href="//fr.pathofexile.com/trade"><span class="fr-lang"><img src="https://web.poecdn.com/image/lang/FR.png" alt="Français"></span></a>
+<a href="//es.pathofexile.com/trade"><span class="es-lang"><img src="https://web.poecdn.com/image/lang/ES.png" alt="Español"></span></a>
+<a href="//poe.game.daum.net/trade"><span class="kr-lang"><img src="https://web.poecdn.com/image/lang/KR.png" alt="한국어"></span></a>
+</div>                                
+<script type="x-template" id="trade-item-template">
+    <div :class="['row', {'gone': gone || outdated, 'refreshing': refreshing}]" :data-id="itemId">
+        <div class="left">
+            <button class="refresh" :class="{'refreshing': refreshing}" @click.prevent="refreshMe" v-show="!outdated" :title="translate('Refresh')"></button>
+            <button class="copy" v-show="!outdated && itemText" :title="translate('Copy Item')" v-clipboard:copy="itemText" v-clipboard:success="itemTextCopied"></button>
+            <button class="searchBy" @click.prevent="searchByMe" v-show="!outdated && searchByEnabled" :title="translate('Filter by Item Stats')"></button>
+            <div :class="['newItemContainer', 'itemRendered', 'iW' + context.w, 'iH' + context.h]">
+                <div class="iconContainer">
+                    <div class="icon" ref="icon">
+                        <img :src="context.icon" alt="">
+                        <div :class="['sockets', 'numSockets' + context.numSockets]">
+                        <template v-for="socket in context.sockets">
+                        <template v-if="socket.linkNext">
+                            <div :class="['socketLink', 'socketLink' + socket.index]"></div>
+                        </template>
+                        <div :class="socketClass(socket)"></div>
+                        </template>
+                        </div>
+                        <span v-if="context.stackSize" class="stackSize" :class="{'maxed': context.stackSizeFull}">{{ context.stackSizeText ? context.stackSizeText : context.stackSize }}</span>
+                    </div>
+                    <template v-if="context.verified && !gone && !outdated">
+                        <div class="verifiedStatus">{{translate("Verified")}}</div>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <item :item="context" :sort="sort" v-cloak></item>
+            <div class="itemPopupAdditional" v-if="item.extended.dps || item.extended.pdps || item.extended.edps">
+                <span class="lc s aug" data-field="dps" :class="{'invisible': !item.extended.dps}">{{ translate('DPS') }}<span :class="[item.extended.dps_aug ? 'colourAugmented' : 'colourDefault']" :title="item.extended.dps_aug ? translate('at max Quality') : ''">{{ item.extended.dps }}</span></span><!--
+             --><span class="lc s aug" data-field="pdps" :class="{'invisible': !item.extended.pdps}">{{ translate('Physical DPS') }}<span :class="[item.extended.pdps_aug ? 'colourAugmented' : 'colourDefault']" :title="item.extended.pdps_aug ? translate('at max Quality') : ''">{{ item.extended.pdps }}</span></span><!--
+             --><span class="lc s aug" data-field="edps" :class="{'invisible': !item.extended.edps}">{{ translate('Elemental DPS') }}<span class="colourDefault">{{ item.extended.edps }}</span></span>
+            </div>
+            <div class="itemPopupAdditional" v-if="item.extended.ar || item.extended.ev || item.extended.es || item.extended.ward" :class="{q: hasQuality(item)}">
+                <span class="lc s" data-field="base_defence_percentile">{{ translate('Base Percentile') }}<span class="colourDefault">{{ item.extended.base_defence_percentile }}%</span></span><!--
+             --><span class="lc s" data-field="ar" :class="{'invisible': !item.extended.ar, 'aug': !!item.extended.ar_aug}">{{ translate('Armour') }}<span :class="[item.extended.ar_aug ? 'colourAugmented' : 'colourDefault']" :title="item.extended.ar_aug ? translate('at max Quality') : ''">{{ item.extended.ar }}</span></span><!--
+             --><span class="lc s" data-field="ev" :class="{'invisible': !item.extended.ev, 'aug': !!item.extended.ev_aug}">{{ translate('Evasion') }}<span :class="[item.extended.ev_aug ? 'colourAugmented' : 'colourDefault']" :title="item.extended.ev_aug ? translate('at max Quality') : ''">{{ item.extended.ev }}</span></span><!--
+             --><span class="lc s" data-field="es" :class="{'invisible': !item.extended.es, 'aug': !!item.extended.es_aug}">{{ translate('Energy Shield') }}<span :class="[item.extended.es_aug ? 'colourAugmented' : 'colourDefault']" :title="item.extended.es_aug ? translate('at max Quality') : ''">{{ item.extended.es }}</span></span><!--
+             --><span class="lc s" data-field="ward" :class="{'invisible': !item.extended.ward, 'aug': !!item.extended.ward_aug}">{{ translate('Ward') }}<span :class="[item.extended.ward_aug ? 'colourAugmented' : 'colourDefault']" :title="item.extended.ward_aug ? translate('at max Quality') : ''">{{ item.extended.ward }}</span></span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="details">
+                <div class="price">
+                    <span v-if="listing.price" class="s" data-field="price">
+                        <span class="price-label" :class="{'fixed-price': listing.price.type == '~price', 'buyout-price': listing.price.type == '~b/o'}">{{ offerType(listing.price.type) }}</span><br>
+                        <span>{{ listing.price.amount }}</span><!--
+                     --><span>&times;</span><!--
+                     --><span class="currency-text" :class="{'currency-image': currencyImg(listing.price.currency)}"><!--
+                         --><img v-if="currencyImg(listing.price.currency)" :src="currencyImg(listing.price.currency)" :alt="listing.price.currency" :title="listing.price.currency"><!--
+                         --><span>{{ currencyText(listing.price.currency) }}</span><!--
+                     --></span>
+                    </span>
+                    <span v-else class="s" data-field="price">
+                        <span class="price-label no-price">{{ translate('No Price Set') }}</span>
+                    </span>
+                </div>
+                <div class="info s" data-field="indexed">
+                    <span class="profile-link">
+                        <template v-if="listing.method == 'forum'">
+                            <a :href="threadUrl(listing)" target="_blank">{{listing.account.name}}</a> <img :src="threadLocaleFlag(listing)" :alt="listing.thread_locale" :title="listing.thread_locale">
+                        </template>
+                        <template v-else>
+                            <a :href="'/account/view-profile/' + listing.account.name" target="_blank">{{listing.account.name}}</a>
+                        </template>
+                    </span>&nbsp;<!--
+                 --><small>{{translate('listed')}} {{ timeAgo }}</small>
+                </div>
+                <div v-if="outdated">
+                    <span class="error">{{translate('Item is outdated')}}</span>
+                </div>
+                <div v-else-if="gone">
+                    <span class="error">{{translate('Item no longer available')}}</span>
+                </div>
+                <div v-show="!outdated && !gone" class="btns" role="group" aria-label="Contact Options">
+                    <span class="pull-left">
+                        <span :class="['status', listing.account.online ? (listing.account.online.status ? 'status-away' : 'status-online') : 'status-offline']" :title="(listing.account.online && listing.account.online.league) ? translate(listing.account.online.league) : ''">
+                            <template v-if="listing.account.online && listing.account.online.status">{{listing.account.online.status === 'afk' ? translate('AFK') : translate('DND')}}</template>
+                            <template v-else>{{listing.account.online ? translate('Online') : translate('Offline')}}</template>
+                        </span><!--
+                     --><span class="character-name">{{translate('IGN:')}} {{ listing.account.lastCharacterName }}</span><!--
+                     --><button class="btn btn-default whisper-btn" v-show="listing.account.lastCharacterName" v-clipboard:copy="listing.whisper" v-clipboard:success="whisperCopied" ref="whisperBtn">{{translate('Whisper')}}</button><!--
+                     --><a role="button" class="btn btn-default pm-btn" :href="'/private-messages/compose?to=' + listing.account.name" target="_blank">{{translate('PM')}}</a>
+                    </span>
+                    <span class="pull-right" v-if="loggedIn">
+                        <button class="btn btn-default unlist-btn" v-if="listing.account.current" @click="unlistMe($event)">{{translate('Force Unlist')}}</button>
+                        <button class="btn btn-default ignore-btn" v-else @click="ignoreMe($event)">{{ignored ? translate('Unignore Player') : translate('Ignore Player')}}</button>
+                    </span>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="x-template" id="trade-exchange-item-template">
+    <div :class="['row', 'exchange', {'gone': gone || outdated}]" :data-id="itemId">
+        <div class="left details">
+            <div class="price">
+                <div class="per-have">
+                    <span v-if="priceInfo">
+                        <span>1</span><!--
+                     --><span>&nbsp;&times;&nbsp;</span><!--
+                     --><template v-if="currencyImg(priceInfo.currency)"><img :src="currencyImg(priceInfo.currency)" :alt="priceInfo.currency" :title="priceInfo.currency"></template>
+                        <span v-else class="currency-text">{{currencyText(priceInfo.currency)}}</span>
+                    </span>
+                    <span>{{ translate('is worth') }}</span>
+                    <span v-if="itemInfo">
+                        <span>{{Math.round(itemInfo.amount / priceInfo.amount * 10000) / 10000}}</span><!--
+                     --><span>&nbsp;&times;&nbsp;</span><!--
+                     --><template v-if="currencyImg(itemInfo.currency)"><img :src="currencyImg(itemInfo.currency)" :alt="itemInfo.currency" :title="itemInfo.currency"></template>
+                        <span v-else class="currency-text">{{currencyText(itemInfo.currency)}}</span>
+                    </span>
+                </div>
+                <div class="per-want">
+                    <span v-if="itemInfo">
+                        <span>1</span><!--
+                     --><span>&nbsp;&times;&nbsp;</span><!--
+                     --><template v-if="currencyImg(itemInfo.currency)"><img :src="currencyImg(itemInfo.currency)" :alt="itemInfo.currency" :title="itemInfo.currency"></template>
+                        <span v-else class="currency-text">{{currencyText(itemInfo.currency)}}</span>
+                    </span>
+                    <span>{{ translate('is worth') }}</span>
+                    <span v-if="priceInfo">
+                        <span>{{Math.round(priceInfo.amount / itemInfo.amount * 10000) / 10000}}</span><!--
+                     --><span>&nbsp;&times;&nbsp;</span><!--
+                     --><template v-if="currencyImg(priceInfo.currency)"><img :src="currencyImg(priceInfo.currency)" :alt="priceInfo.currency" :title="priceInfo.currency"></template>
+                        <span v-else class="currency-text">{{currencyText(priceInfo.currency)}}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="middle details">
+            <div class="price">
+                <span class="price-left" v-if="itemInfo">
+                    <small>{{ translate('what you get') }}</small>
+                    <div class="price-block">
+                        <span class="currency-text">{{currencyText(itemInfo.currency)}}</span><!--
+                     --><template v-if="currencyImg(itemInfo.currency)">&nbsp;<img :src="currencyImg(itemInfo.currency)" :alt="itemInfo.currency" :title="itemInfo.currency"></template><!--
+                     --><span>&nbsp;&times;&nbsp;</span><!--
+                     --><span>{{itemInfo.amount}}</span>
+                    </div>
+                </span>
+                <span>⇐</span>
+                <span class="price-right" v-if="priceInfo">
+                    <small>{{ translate('what you pay') }}</small>
+                    <div class="price-block">
+                        <span>{{priceInfo.amount}}</span><!--
+                     --><span>&nbsp;&times;&nbsp;</span><!--
+                     --><template v-if="currencyImg(priceInfo.currency)"><img :src="currencyImg(priceInfo.currency)" :alt="priceInfo.currency" :title="priceInfo.currency">&nbsp;</template><!--
+                     --><span class="currency-text">{{currencyText(priceInfo.currency)}}</span>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="details">
+                <div class="info">
+                    <span class="pull-left stock">
+                        {{translate ('Stock')}}:&nbsp;<span>{{itemInfo.stock}}</span>&nbsp;<span class="currency-text">{{currencyText(itemInfo.currency)}}</span>
+                    </span>
+                    <span class="pull-right">
+                        <span class="profile-link">
+                            <template v-if="listing.method == 'forum'">
+                                <a :href="threadUrl(listing)" target="_blank">{{listing.account.name}}</a>&nbsp;<img :src="threadLocaleFlag(listing)" :alt="listing.thread_locale" :title="listing.thread_locale">
+                            </template>
+                            <template v-else>
+                                <a :href="'/account/view-profile/' + listing.account.name" target="_blank">{{listing.account.name}}</a><template v-if="listing.account.language">&nbsp;<img :src="threadLocaleFlag({thread_locale: listing.account.language.substr(0, 2)})" :alt="listing.account.language" :title="listing.account.language"></template>
+                            </template>
+                        </span>
+                    </span>
+                    <div class="clear"></div>
+                </div>
+                <div class="btns" role="group" aria-label="Contact Options">
+                    <span class="pull-left">
+                        <span :class="['status', listing.account.online ? (listing.account.online.status ? 'status-away' : 'status-online') : 'status-offline']" :title="(listing.account.online && listing.account.online.league) ? translate(listing.account.online.league) : ''">
+                            <template v-if="listing.account.online && listing.account.online.status">{{listing.account.online.status === 'afk' ? translate('AFK') : translate('DND')}}</template>
+                            <template v-else>{{listing.account.online ? translate('Online') : translate('Offline')}}</template>
+                        </span><!--
+                     --><button class="btn btn-default" v-show="listing.account.lastCharacterName" @click="contact = !contact">{{contact ? translate('Close') : translate('Contact...')}}</button><!--
+                     --><button class="btn btn-default" v-show="listing.account.lastCharacterName" @click="copyMax($event)">{{translate('Max')}}</button>
+                    </span>
+                    <span class="pull-right" v-if="loggedIn">
+                        <button class="btn btn-default ignore-btn" @click="ignoreMe($event)">{{ignored ? translate('Unignore Player') : translate('Ignore Player')}}</button>
+                    </span>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="contact" v-if="contact">
+            <div class="slider">
+                <div class="slider-left">
+                    <img v-if="currencyImg(itemInfo.currency)" :src="currencyImg(itemInfo.currency)" :alt="itemInfo.currency" :title="itemInfo.currency"><!--
+                 --><span v-else class="currency-text">{{currencyText(itemInfo.currency)}}</span><!--
+                 --><span>&nbsp;&times;&nbsp;</span><!--
+                 --><span class="price">{{itemInfo.amount * value}}</span>
+                </div>
+                <div class="slider-middle">
+                    <input type="range" name="points" min="1" :max="maxOrders" v-model="value">
+                    <textarea readonly="readonly" class="form-control" rows="1" v-html="whisper" @click="copy($event)" ref="whisper"></textarea>
+                    <div v-if="value > maxOrders" class="error padded text-center">{{ translate('Not enough stock!') }}</div>
+                </div>
+                <div class="slider-right">
+                    <span class="price">{{priceInfo.amount * value}}</span><!--
+                 --><span>&nbsp;&times;&nbsp;</span><!--
+                 --><img v-if="currencyImg(priceInfo.currency)" :src="currencyImg(priceInfo.currency)" :alt="priceInfo.currency" :title="priceInfo.currency"><!--
+                 --><span v-else class="currency-text">{{currencyText(priceInfo.currency)}}</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="x-template" id="property-filter-group-template">
+    <div class="filter-group" :class="{'expanded': !disabled}">
+        <div class="filter-group-header">
+            <div class="filter">
+                <span class="input-group-btn"><button class="btn toggle-btn" :class="{'off': disabled}" @click="toggleMe"></button></span>
+                <span class="filter-body">
+                    <span class="filter-title filter-title-clickable" @click="toggleMe">
+                        <span>{{group.title}}</span>
+                    </span>
+                    <span class="input-group-btn" v-show="modified">
+                        <button class="btn remove-btn" @click="clearMe" :title="translate('Clear Filter Group')" :disabled="unavailable"></button>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="filter-group-body" v-show="!disabled">
+            <item-filter
+                v-for="(filter, index) in filters"
+                :filter="filter"
+                :index="index"
+                :spaced="spaced[index]"
+                :property="true"
+                :state="(state.filters && state.filters[filter.id]) || {}"
+                :key="filter.id"
+                @update="updateFilter">
+            </item-filter>
+        </div>
+        <div class="clear"></div>
+    </div>
+</script>
+<script type="x-template" id="stat-filter-group-template">
+    <div class="filter-group" :class="{'expanded': !disabled}">
+        <div class="filter-group-header">
+            <div class="filter">
+                <span class="input-group-btn"><button class="btn toggle-btn" :class="{'off': disabled}" @click="toggleMe" :disabled="unavailable"></button></span>
+                <span class="filter-body">
+                    <div class="filter-title" :class="{'filter-title-clickable': !unavailable}" v-if="!mutating" @click="!unavailable && toggleMe()">{{ group.title }}</div>
+                    <multiselect
+                        v-else
+                        :tabindex="-1"
+                        class="filter-select filter-select-title filter-select-mutate" style="width: 100%;"
+                        :value="mutableValue"
+                        :options="mutateOptions"
+                        :show-labels="false"
+                        :allow-empty="false"
+                        :placeholder="mutableValue ? mutateLabel(mutableValue) || null : null"
+                        :disabled="unavailable || disabled"
+                        group-values="entries"
+                        group-label="label"
+                        track-by="type"
+                        label="title"
+                        ref="mutate"
+                        @open="updateMutatePanel"
+                        @close="toggleMutating"
+                        @input="mutate">
+                        <span slot="noResult">{{ translate('No matches.') }}</span>
+                    </multiselect>
+                    <span class="input-group-btn"><button class="btn edit-btn" @click="toggleMutating($event)" :disabled="unavailable || disabled"></button></span>
+                    <template v-if="group.minMax">
+                        <span class="sep"></span>
+                        <input type="number" class="form-control minmax" :placeholder="translate('min')" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any"
+                            :class="{'modified': value.min != null}"
+                            :value="value.min"
+                            @change="updateFloat('min', $event.target.value)"
+                            :disabled="unavailable || disabled">
+                        <span class="sep"></span>
+                        <input type="number" class="form-control minmax" :placeholder="translate('max')" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any"
+                            :class="{'modified': value.max != null}"
+                            :value="value.max"
+                            @change="updateFloat('max', $event.target.value)"
+                            :disabled="unavailable || disabled">
+                    </template>
+                </span>
+                <span class="input-group-btn" v-if="closable">
+                    <button class="btn remove-btn" @click="removeMe" :disabled="unavailable"></button>
+                </span>
+            </div>
+        </div>
+        <div class="filter-group-body" v-show="!disabled">
+            <item-filter
+                v-for="(filter, index) in filters"
+                :filter="filter"
+                :index="index"
+                :state="state.filters[index].value || {}"
+                :key="filter.id"
+                @update="updateFilter"
+                @toggle="toggleFilter"
+                @mutate="mutateFilter"
+                @remove="removeFilter">
+            </item-filter>
+            <div class="filter filter-padded">
+                <span class="filter-body">
+                    <multiselect
+                        :tabindex="-1"
+                        class="filter-select filter-select-mutate"
+                        style="width: 100%;"
+                        :value="null"
+                        :options="availableOptions"
+                        :show-labels="false"
+                        :reset-after="true"
+                        :allow-empty="false"
+                        :placeholder="'+ ' + translate('Add Stat Filter')"
+                        group-values="entries"
+                        group-label="label"
+                        track-by="id"
+                        label="text"
+                        @input="selectFilter"
+                        @open="fixSearch"
+                        @search-change="fixSearch"
+                        :custom-label="addStatFilterLabel"
+                        :disabled="unavailable"
+                        ref="search">
+                        <template slot="option" scope="props">
+                            <template v-if="props.option.$isLabel">
+                                <span>{{ props.option.$groupLabel }}</span>
+                            </template>
+                            <template v-else>
+                                <i class="mutate-type" :class="['mutate-type-' + props.option.type]">{{ translate(props.option.type) }}</i>
+                                <template v-for="text in props.option.text.split('\n')">
+                                    <span v-html="underline(text, props.search)"></span><br>
+                                </template>
+                            </template>
+                        </template>
+                        <span slot="noResult">{{ translate('No elements found. Consider changing the search query.') }}</span>
+                    </multiselect>
+                </span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</script>
+<script type="x-template" id="filter-template">
+    <div class="filter" :class="{'filter-property': property, 'full-span': filter.fullSpan, 'spaced': spaced, 'disabled': unavailable || disabled}">
+        <span class="input-group-btn" v-if="filter.removable">
+            <button 
+                class="btn toggle-btn" 
+                :class="{'off': disabled, 'duplicate': filter.duplicate}" 
+                @click="toggle" 
+                :title="filter.duplicate ? translate('This stat is already being used in this filter') : null"
+                :disabled="unavailable"
+            >
+            </button>
+        </span>
+        <span class="filter-body">
+        <template v-if="filter.mutable">
+        <div class="filter-title filter-title-clickable" v-if="!mutating" @click="!unavailable && !invalid && toggleMutating($event)">
+            <i class="mutate-type" :class="['mutate-type-' + mutableValue.type]">{{ translate(mutableValue.type) }}</i> {{ mutableValue.text }}
+        </div>
+        <multiselect
+            v-else
+            :tabindex="-1"
+            class="filter-select filter-select-title filter-select-mutate" style="width: 100%;"
+            :value="mutableValue"
+            :options="mutateOptions"
+            :show-labels="false"
+            :allow-empty="false"
+            :placeholder="mutableValue ? mutateLabel(mutableValue) || null : null"
+            :disabled="unavailable || disabled || invalid"
+            group-values="entries"
+            group-label="label"
+            :hide-until-search="true"
+            track-by="id"
+            label="text"
+            ref="mutate"
+            :custom-label="mutateLabel"
+            @open="updateMutatePanel"
+            @close="toggleMutating"
+            @input="mutate">
+            <template slot="option" scope="props">
+                <template v-if="props.option.$isLabel">
+                    <span>{{ props.option.$groupLabel }}</span>
+                </template>
+                <template v-else>
+                    <i class="mutate-type" :class="['mutate-type-' + props.option.type]">{{ translate(props.option.type) }}</i>
+                    <template v-for="text in props.option.text.split('\n')">
+                        <span v-html="underline(text, props.search)"></span><br>
+                    </template>
+                </template>
+            </template>
+            <span slot="noResult">{{ translate('No elements found. Consider changing the search query.') }}</span>
+        </multiselect>
+        </template>
+        <template v-else>
+        <template v-if="filter.text">
+        <div class="filter-title" :class="filter.icon ? ['icon', 'icon-' + filter.icon] : null">
+            {{ filter.text }}
+            <div v-if="filter.tip" class="filter-tip"><p>{{ filter.tip }}</p></div>
+        </div>
+        </template>
+        </template>
+        <template v-if="filter.sockets">
+            <span class="sep"></span>
+            <input type="number" min="0" max="6" step="1" class="form-control socket str" 
+                :class="{'modified': value.r != null}" 
+                :placeholder="translate('R')" 
+                :value="value.r" 
+                @change="updateInt('r', $event.target.value)" 
+                :disabled="unavailable || disabled"><span class="sep"></span>
+            <input type="number" min="0" max="6" step="1" class="form-control socket dex" 
+                :class="{'modified': value.g != null}" 
+                :placeholder="translate('G')" 
+                :value="value.g" 
+                @change="updateInt('g', $event.target.value)" 
+                :disabled="unavailable || disabled"><span class="sep"></span>
+            <input type="number" min="0" max="6" step="1" class="form-control socket int" 
+                :class="{'modified': value.b != null}" 
+                :placeholder="translate('B')" 
+                :value="value.b" 
+                @change="updateInt('b', $event.target.value)" 
+                :disabled="unavailable || disabled"><span class="sep"></span>
+            <input type="number" min="0" max="6" step="1" class="form-control socket gen" 
+                :class="{'modified': value.w != null}" 
+                :placeholder="translate('W')" 
+                :value="value.w" 
+                @change="updateInt('w', $event.target.value)" 
+                :disabled="unavailable || disabled">
+        </template>
+        <template v-if="filter.option">
+            <span class="sep"></span>
+            <multiselect
+                :tabindex="-1"
+                class="filter-select"
+                :class="{'modified': option && option.id}"
+                :style="{width: filter.minMax ? '100%' : (filter.fullSpan ? '271px' : '131px')}"
+                :options="options"
+                :value="option"
+                :show-labels="false"
+                :disabled="unavailable || disabled || options.length == 0"
+                :placeholder="option ? (option.text || null) : null"
+                :allow-empty="false"
+                label="text"
+                track-by="id"
+                ref="option"
+                @open="updateOptionPanel"
+                @input="updateOption">
+                <template slot="option" scope="props">
+                    <template v-if="props.option.$isLabel">
+                        <span>{{ props.option.$groupLabel }}</span>
+                    </template>
+                    <template v-else>
+                        <template v-for="text in props.option.text.split('\n')">
+                            <span v-html="underline(text, props.search)"></span><br>
+                        </template>
+                    </template>
+                </template>
+                <span slot="noResult">{{ translate('No elements found. Consider changing the search query.') }}</span>
+            </multiselect>
+        </template>
+        <template v-if="filter.input">
+            <span class="sep"></span>
+            <input type="text" class="form-control text" :placeholder="filter.input.placeholder" 
+                :class="{'modified': value.input != null}"
+                :value="value.input" 
+                @change="updateInput($event.target.value)"
+                maxlength="31"
+                :disabled="unavailable || disabled">
+        </template>
+        <template v-if="filter.weight">
+            <span class="sep"></span>
+            <input type="number" class="form-control weight" :placeholder="translate('weight')" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any"
+                :class="{'modified': value.weight != null}"
+                :value="value.weight"
+                @change="updateFloat('weight', $event.target.value)"
+                :disabled="unavailable || disabled">
+        </template>
+        <template v-if="filter.minMax">
+            <span class="sep"></span>
+            <input type="number" class="form-control minmax" :placeholder="translate('min')" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any"
+                :class="{'modified': value.min != null}"
+                :value="value.min"
+                @change="updateFloat('min', $event.target.value)"
+                :disabled="unavailable || disabled">
+            <span class="sep"></span>
+            <input type="number" class="form-control minmax" :placeholder="translate('max')" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any"
+                :class="{'modified': value.max != null}"
+                :value="value.max"
+                @change="updateFloat('max', $event.target.value)"
+                :disabled="unavailable || disabled">
+        </template>
+        </span>
+        <span class="input-group-btn" v-if="filter.removable">
+            <button class="btn remove-btn" @click="remove" :disabled="unavailable"></button>
+        </span>
+    </div>
+</script>
+
+<script type="x-template" id="item-search-control-panel-template">
+    <div class="controls">
+        <div class="controls-left">
+            <template v-if="loggedIn && current && !current.dirty">
+            <button class="btn livesearch-btn" type="button" @click="liveSearch" v-show="tab === 'search' && current.id">
+                <span class="plus"></span>
+                <span v-if="current.live">{{ translate('Deactivate Live Search') }}</span>
+                <span v-else>{{ translate('Activate Live Search') }}</span>
+            </button>
+            </template>
+        </div>
+        <div class="controls-center">
+            <button class="btn search-btn" type="button" @click="search" :disabled="searching || cooldown || current.live || invalid">
+                <span>{{searchLabel}}</span>
+            </button>
+        </div>
+        <div class="controls-right">
+            <button class="btn clear-btn" type="button" @click="clear" :disabled="searching">
+                <span>{{ translate('Clear') }}</span>
+            </button>
+            <button class="btn toggle-search-btn" type="button" @click="toggleSearch">
+                <span alt="Toggle" class="chevron" :class="{'collapsed': advancedSearchHidden}"></span>
+                <span v-if="advancedSearchHidden">{{ translate('Show Filters') }}</span>
+                <span v-else>{{ translate('Hide Filters') }}</span>
+            </button>
+        </div>
+        <div class="clear"></div>
+    </div>
+</script>
+<script type="x-template" id="item-search-panel-template">
+    <div class="search-panel">
+        <div class="search-bar">
+            <div class="search-left">
+                <template v-if="state.tab == 'search'">
+                <multiselect
+                    class="search-select" style="width: 100%;"
+                    :class="{'modified': selectedItem !== null}"
+                    :options="knownItems"
+                    v-model="selectedItem"
+                    :show-labels="false"
+                    :placeholder="translate('Search Items...')"
+                    :hide-until-search="true"
+                    group-values="entries"
+                    group-label="label"
+                    label="text"
+                    :disabled="unavailable"
+                    ref="search"
+                    :multiple="false"
+                    :taggable="true"
+                    :tag-placeholder="translate('Custom Search')"
+                    @tag="setSearchTerm"
+                    @open="updateSearchPanel"
+                    @search-change="fixSearch">
+                    <template slot="option" scope="props">
+                        <template v-if="props.option.$isLabel">
+                            <span>{{ props.option.$groupLabel }}</span>
+                        </template>
+                        <template v-else-if="props.option.isTag">
+                            <span>{{ props.search }}</span>
+                        </template>
+                        <template v-else-if="props.option.term">
+                            <span>{{ props.option.term }}</span>
+                        </template>
+                        <template v-else>
+                            <span :class="{'unique': (props.option.flags && props.option.flags.unique), 'prophecy': (props.option.flags && props.option.flags.prophecy)}" v-html="underline(props.option.text, props.search)"></span>
+                        </template>
+                    </template>
+                    <span slot="noResult">{{ translate('No elements found. Consider changing the search query.') }}</span>
+                </multiselect>
+                </template>
+                <template v-else-if="state.tab == 'exchange'">
+                <input 
+                    class="search-select form-control text" style="width: 100%;"
+                    type="text" :placeholder="translate('Highlight Items...')" 
+                    v-model="exchangeHighlight"
+                    ref="search">
+                </template>
+            </div>
+            <div class="search-right">
+                <multiselect class="status-select" style="width: 50%;"
+                    :tabindex="0"
+                    :options="static_.leagues"
+                    :searchable="false"
+                    v-model="selectedLeague"
+                    :allow-empty="false"
+                    :show-labels="false"
+                    label="text"
+                    :disabled="unavailable"
+                    ref="league"
+                    track-by="id">
+                </multiselect>
+                <multiselect class="status-select" style="width: 50%;"
+                    :tabindex="0"
+                    :options="statusOptions"
+                    :searchable="false"
+                    v-model="selectedStatus"
+                    :allow-empty="false"
+                    :show-labels="false"
+                    label="text"
+                    :disabled="unavailable"
+                    ref="status"
+                    track-by="id">
+                </multiselect>
+            </div>
+        </div>
+        <div class="search-bar search-advanced" :class="{'search-advanced-hidden': advancedSearchHidden}">
+            <item-search-control-panel
+                v-if="enableTopSearchBar"
+                @clear="clearState"
+                @live="toggleLive"
+                @search="doSearch">
+            </item-search-control-panel>
+            <item-filter-panel v-if="state.tab == 'search'">
+            </item-filter-panel>
+            <exchange-filter-panel v-if="state.tab == 'exchange'">
+            </exchange-filter-panel>
+        </div>
+        <item-search-control-panel
+            @clear="clearState"
+            @live="toggleLive"
+            @search="doSearch">
+        </item-search-control-panel>
+    </div>
+</script><script type="x-template" id="item-filter-panel-template">
+    <div class="search-advanced-items">
+        <div class="search-advanced-pane blue">
+            <property-filter-group
+                v-for="(group, index) in groupsLeft"
+                :index="index"
+                :group="group"
+                :state="stateLeft[group.id] || {}"
+                :key="group.id">
+            </property-filter-group>
+        </div>
+        <div class="search-advanced-pane brown">
+            <stat-filter-group
+                v-for="(group, index) in groupsRight"
+                :index="index"
+                :group="group"
+                :state="stateRight[index] || {}"
+                :key="group.id">
+            </stat-filter-group>
+            <div class="filter filter-padded">
+                <span class="filter-body" style="width: 50%; margin-left: 50%">
+                    <multiselect
+                        :tabindex="-1"
+                        class="filter-select filter-group-select"
+                        :options="statGroupsAvailable"
+                        @input="selectStatGroup"
+                        :reset-after="true"
+                        :show-labels="false"
+                        :placeholder="'+ ' + translate('Add Stat Group')"
+                        group-values="entries"
+                        group-label="label"
+                        label="title"
+                        @open="fixSearch"
+                        @search-change="fixSearch"
+                        track-by="id"
+                        :disabled="unavailable"
+                        ref="search">
+                        <span slot="noResult">{{ translate('No matches.') }}</span>
+                    </multiselect>
+                </span>
+            </div>
+            <div v-if="news.length" class="news-banner" v-show="stateRight.length === 1 && stateRight[0].filters.length === 0">
+                <div class="news-controls">
+                    <button class="btn remove-btn" :title="translate('Dismiss News')" @click="dismissNews"></button>
+                </div>
+                <a v-for="entry in news" :href="entry.url" target="_blank"><img :src="entry.image"></a>
+            </div>
+        </div>
+    </div>
+</script><script type="x-template" id="exchange-filter-panel-template">
+    <div class="search-advanced-items exchange">
+        <div class="search-advanced-pane brown">
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="input-group-btn"><button class="btn toggle-btn disabled"></button></span>
+                        <span class="filter-title">{{ translate('Items I Want') }}</span>
+                        <span class="input-group-btn">
+                            <button :title="translate('Swap Want/Have')" class="btn filter-toggle" @click="swapWantHave"></button>
+                        </span>
+                    </div>
+                </div> 
+                <div class="filter-group-body" :class="{'dimmed': searchTerm}">
+                    <div v-for="(group, index) in options" class="filter" v-if="group.entries.length">
+                        <div class="filter-title filter-title-clickable" @click.prevent="toggleCategory('want', group.id, index)">
+                            <span>{{ group.label }}</span>
+                            <span class="pull-right" v-if="filtersByGroup.want[group.id]">
+                                ({{ translate('{i} selected', {'{i}': filtersByGroup.want[group.id].length}) }})
+                            </span>
+                        </div>
+                        <div class="filter-options" v-if="expanded.want[group.id]">
+                            <template v-for="(entry, index) in group.entries">
+                            <div v-if="entry.id == 'sep'" class="split">{{ entry.text }}</div>
+                            <entry
+                                v-else
+                                :class="optionClasses[entry.id]"
+                                :entry="entry" 
+                                :group="group" 
+                                :state="filtersById.want[entry.id]"
+                                :key="entry.id"
+                                @select="addWantItem"
+                                @deselect="removeWantItem">
+                            </entry>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-group blue">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="input-group-btn"><button class="btn toggle-btn disabled"></button></span>
+                        <span class="filter-title">{{ translate('Seller Filters') }}</span>
+                    </div>
+                </div> 
+                <div class="filter-group-body">
+                    <div class="filter filter-property full-span">
+                        <div class="filter-title">
+                            <span>{{ translate("Seller Account") }}</span>
+                        </div>
+                        <span class="sep"></span>
+                        <input type="text" class="form-control text" :placeholder="translate('Enter account name...')"
+                            :class="{'modified': sellerAccount != null}"
+                            :value="sellerAccount" 
+                            @change="updateSellerAccount($event.target.value)"
+                            maxlength="31">
+                    </div>
+                    <div class="filter filter-property">
+                        <div class="filter-title">
+                            <span>{{ translate("Minimum Stock") }}</span>
+                        </div>
+                        <span class="sep"></span>
+                        <input type="number" class="form-control minmax" :placeholder="translate('min')" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any"
+                            :class="{'modified': minimumStock != null}" 
+                            :value="minimumStock" 
+                            @change="updateMinimumStock($event.target.value)">
+                    </div>
+                    <div class="filter filter-property">
+                        <div class="filter-title">
+                            <span>{{ translate("Can Fulfil Trade") }}</span>
+                        </div>
+                        <span class="sep"></span>
+                        <multiselect
+                            :tabindex="-1"
+                            class="filter-select"
+                            :class="{'modified': !mustFulfilTrade}"
+                            :style="{width: '131px'}"
+                            :options="mustFulfilTradeOptions"
+                            :value="mustFulfilTradeOption"
+                            :show-labels="false"
+                            :placeholder="mustFulfilTradeOption ? (mustFulfilTradeOption.text || null) : null"
+                            :allow-empty="false"
+                            label="text"
+                            track-by="id"
+                            ref="option"
+                            @input="updateMustFulfilTrade">
+                            <template slot="option" scope="props">
+                                <template v-if="props.option.$isLabel">
+                                    <span>{{ props.option.$groupLabel }}</span>
+                                </template>
+                                <template v-else>
+                                    <span v-html="underline(props.option.text, props.search)"></span>
+                                </template>
+                            </template>
+                            <span slot="noResult">{{ translate('No elements found. Consider changing the search query.') }}</span>
+                        </multiselect>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-advanced-pane brown">
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="input-group-btn"><button class="btn toggle-btn disabled"></button></span>
+                        <span class="filter-title">{{ translate('Items I Have') }}</span>
+                        <span class="input-group-btn">
+                            <button :title="translate('Swap Want/Have')" class="btn filter-toggle" @click="swapWantHave"></button>
+                        </span>
+                    </div>
+                </div> 
+                <div class="filter-group-body" :class="{'dimmed': searchTerm}">
+                    <div v-for="(group, index) in options" class="filter" v-if="group.entries.length">
+                        <div class="filter-title filter-title-clickable" @click.prevent="toggleCategory('have', group.id, index)">
+                            <span>{{ group.label }}</span>
+                            <span class="pull-right" v-if="filtersByGroup.have[group.id]">
+                                ({{ translate('{i} selected', {'{i}': filtersByGroup.have[group.id].length}) }})
+                            </span>
+                        </div>
+                        <div class="filter-options" v-if="expanded.have[group.id]">
+                            <template v-for="(entry, index) in group.entries">
+                            <div v-if="entry.id == 'sep'" class="split">{{ entry.text }}</div>
+                            <entry
+                                v-else
+                                :class="optionClasses[entry.id]"
+                                :entry="entry" 
+                                :group="group" 
+                                :state="filtersById.have[entry.id]"
+                                :key="entry.id"
+                                @select="addHaveItem"
+                                @deselect="removeHaveItem">
+                            </entry>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="x-template" id="exchange-filter-entry-template">
+    <div class="exchange-filter-item" :class="{'set': isSet, 'active': !!state, 'text': !entry.image}" :data-id="entry.id" @click="toggle" :title="entry.text">
+        <img v-if="entry.image" :src="image" :alt="entry.text">
+        <span v-else>{{ entry.text }}</span>
+    </div>
+</script><script type="x-template" id="settings-panel-template">
+    <div class="search-bar settings">
+        <div class="search-advanced-pane">
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Account Settings') }}<em v-if="!loggedIn">&nbsp;({{ translate('Log in Required')}})</em></span>
+                    </div>
+                </div>
+                <div class="filter-group-body">
+                    <div class="filter" :class="{'disabled': !loggedIn}">
+                        <span class="filter-title">{{ translate('Online Status') }}</span>
+                        <span class="sep"></span>
+                        <multiselect
+                            class="filter-select"
+                            style="width: 271px"
+                            :value="accountHideStatus"
+                            :options="accountStatusOptions"
+                            :placeholder="accountHideStatus.text || accountStatusRetrievingMessage"
+                            :disabled="!loggedIn||_.isEmpty(accountHideStatus)"
+                            :show-labels="false"
+                            :allow-empty="false"
+                            @select="updateAccountHideStatus"
+                            label="text"
+                            track-by="id">
+                            <span slot="noResult">{{ translate('No matches.') }}</span>
+                        </multiselect>
+                    </div>
+                    <div class="filter" :class="{'disabled': !loggedIn}">
+                        <span class="filter-title">{{ translate('Whisper Language') }}</span>
+                        <span class="sep"></span>
+                        <multiselect
+                            class="filter-select"
+                            style="width: 271px"
+                            :value="accountLanguageOverride"
+                            :options="accountLanguageOverrideOptions"
+                            :placeholder="accountLanguageOverride.text || accountStatusRetrievingMessage"
+                            :disabled="!loggedIn||_.isEmpty(accountLanguageOverride)"
+                            :show-labels="false"
+                            :allow-empty="false"
+                            @select="updateAccountLanguageOverride"
+                            label="text"
+                            track-by="id">
+                            <span slot="noResult">{{ translate('No matches.') }}</span>
+                        </multiselect>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Search Settings') }}</span>
+                    </div>
+                </div>
+                <div class="filter-group-body">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Search Bar Layout') }}</span>
+                        <span class="sep"></span>
+                        <multiselect
+                            class="filter-select"
+                            style="width: 271px"
+                            v-model="searchBarLayout"
+                            :options="searchBarLayoutOptions"
+                            :searchable="false"
+                            :show-labels="false"
+                            :allow-empty="false"
+                            label="text"
+                            track-by="text">
+                        </multiselect>
+                    </div>
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Socket Notches') }}</span>
+                        <span class="sep"></span>
+                        <multiselect
+                            class="filter-select"
+                            style="width: 271px"
+                            v-model="socketVariant"
+                            :options="socketVariantOptions"
+                            :searchable="false"
+                            :show-labels="false"
+                            :allow-empty="false"
+                            label="text"
+                            track-by="text">
+                        </multiselect>
+                    </div>
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Notification Sound') }}</span>
+                        <span class="sep"></span>
+                        <multiselect
+                            class="filter-select"
+                            style="width: 271px"
+                            v-model="notificationSound"
+                            :options="notificationOptions"
+                            :searchable="false"
+                            :show-labels="false"
+                            :allow-empty="false"
+                            label="name">
+                        </multiselect>
+                        <input type="file" ref="customSound" style="display: none">
+                    </div>
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Notification Volume') }}</span>
+                        <span class="sep"></span>
+                        <multiselect
+                            class="filter-select"
+                            style="width: 271px"
+                            v-model="notificationSoundVolume"
+                            :options="notificationVolumeOptions"
+                            :searchable="false"
+                            :show-labels="false"
+                            :allow-empty="false"
+                            label="text"
+                            track-by="text">
+                        </multiselect>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Cache Settings') }}</span>
+                    </div>
+                </div>
+                <div class="filter-group-body">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Cached Data') }}</span>
+                        <span class="input-group-btn">
+                            <button class="btn large-btn" @click="clearCachedData($event)">{{ translate('Clear Cached Data') }}</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-advanced-pane">
+            <div class="filter-group">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Ignore List') }}<em v-if="!loggedIn">&nbsp;({{ translate('Log in Required')}})</em><span v-else> - {{ accountIgnoreListPageLabel }}</span></span>
+                        <span class="input-group-btn" v-if="loggedIn">
+                            <button class="btn" @click="clearAccountIgnoreList($event)" :disabled="ui.refreshingIgnoreList">{{ translate('Remove All') }}</button>
+                        </span>
+                        <span class="input-group-btn" v-if="loggedIn">
+                            <button ref="prevPageIgnoreListBtn" class="btn prev-btn" @click="prevPageAccountIgnoreList" :disabled="ui.refreshingIgnoreList"></button>
+                            <button ref="nextPageIgnoreListBtn" class="btn next-btn" @click="nextPageAccountIgnoreList" :disabled="ui.refreshingIgnoreList"></button>
+                        </span>
+                        <span class="input-group-btn" v-if="loggedIn">
+                            <button ref="updateIgnoreListBtn" class="btn refresh-btn" @click="updateAccountIgnoreList"></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="filter-group-body" v-if="loggedIn">
+                    <div class="filter" v-for="ignored in account.ignoreList">
+                        <span class="filter-title">{{ ignored.name }}</span>
+                        <span class="input-group-btn">
+                            <button class="btn remove-btn" @click="removeAccountIgnoreListEntry(ignored.name, $event)"></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</script><script type="x-template" id="about-panel-template">
+    <div class="search-bar about">
+        <div class="search-advanced-pane">
+            <div class="filter-group expanded">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Listed Item Searching') }}</span>
+                    </div>
+                </div>
+                <div class="filter-group-body">
+                    <p>
+                        {{ translate('This website allows you to search through items listed for sale in Shop Forums as well as those listed using Public Premium Stash Tabs in-game.') }}<br><br>
+                        {{ translate('You can search by an item\'s name or an item\'s base type using the "Search Items" field.') }}<br><br>
+                        {{ translate('Players will have their Online/Offline status updated every minute.') }}<br><br>
+                        {{ translate('While searching is easy, you will still have to contact the player selling the item in order to complete the trade.') }}
+                        {{ translate('We provide an easy copy-pasteable message to whisper the player with, as well as a link to PM the player on the main Path of Exile website.') }}<br>
+                        <em>{{ translate('Please note: The whisper message will be translated into the seller\'s local language.') }}</em><br><br>
+                        {{ translate('If for any reason you no longer wish to view a certain player\'s listings, you can use the "Ignore Player" button to remove their listings from your search results.') }}<br> 
+                        <em>{{ translate('Please note: This feature requires you to be logged in with your Path of Exile account. Additionally, this ignore list is not tied to your in-game ignore list in any way, and may be managed in the settings panel right here on the trade site.') }}</em><br><br>
+                        {{ translate('We also allow you to perform a "Live Search" where you will be notified when a new item matching your search criteria is listed or updated.') }}
+                        <em>{{ translate('Please note: The search only runs while you keep your browser tab or window open (in the background is okay).') }}</em><br><br>
+                    </p>
+                </div>
+            </div>
+            <div class="filter-group expanded">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Settings') }}</span>
+                    </div>
+                </div>
+                <div class="filter-group-body">
+                    <p>
+                        {{ translate('When logged into this site, you may also choose how your in-game status is used for trade-related searches.') }}
+                        {{ translate('By default, your status will show for items you have listed in the league that you are currently playing in.') }}
+                        {{ translate('You may opt to show your status regardless of what league you are playing if you so choose.') }}<br>
+                        <em>{{ translate('Please note: Players using the Do Not Disturb feature in-game will be treated as Offline for the purposes of this site.') }}</em><br><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="search-advanced-pane">
+            <div class="filter-group expanded">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <span class="filter-title">{{ translate('Bulk Item Exchange') }}</span>
+                    </div>
+                </div>
+                <div class="filter-group-body">
+                    <p>
+                        {{ translate('Certain items may be listed for bulk sale (listed below).') }}
+                        {{ translate('Your eligible items will be grouped together under one price, with the total amount of items presented as "stock".') }}<br>
+                        {{ translate('In order to list exchange entries, either in-game or on the forum, use the ratio format on the item you wish to offer for the type of item you would like in return.') }}<br><br>
+                        {{ translate('For example:') }}<br>
+                        <span class="newItemContainer iW1 iH1" style="display:inline-block;position:relative">
+                            <img class="icon" :src="chaosImage">
+                            <span class="stackSize">10</span>
+                        </span>
+                        <span>~price 3/1 fusing</span><br>
+                        {{ translate('will list your intent to buy 3 Orbs of Fusing for 1 Chaos Orb each.') }}<br><br>
+                        {{ translate('Alternatively:') }}<br>
+                        <span class="newItemContainer iW1 iH1" style="display:inline-block;position:relative">
+                            <img class="icon" :src="chromaticImage">
+                            <span class="stackSize">20</span>
+                        </span>
+                        <span>~price 2/35 chaos</span><br>
+                        {{ translate('will list your intent to buy 2 Orbs of Chaos for 35 Chromatic Orbs each. This is technically equivalent to selling 17.5 Chromatic Orbs per Chaos Orb, however pricing this way is more appropriate for bulk sets of items.') }}<br><br>
+                        <em>{{ translate('Please note: Stock includes all of the items of that type that are publicly listed (priced or not).') }}</em><br><br>
+                    </p>
+                </div>
+            </div>
+            <div class="filter-group" v-for="group in exchangeOptions" :class="{'expanded': expanded[group.id]}" v-if="group.entries.length">
+                <div class="filter-group-header">
+                    <div class="filter">
+                        <div class="filter-title filter-title-clickable" @click="toggleExchangeCategory(group)">{{ translate('Item Tags') }} - {{ group.label }}</div>
+                    </div>
+                </div>
+                <div class="filter-group-body" v-show="expanded[group.id]">
+                    <div class="filter" v-for="entry in group.entries" :key="entry.id">
+                        <div class="filter-title">
+                            {{ entry.text }}
+                            <img v-if="entry.image" class="pull-right" style="height: 18px;" :src="image(entry)">
+                        </div>
+                        <span class="sep"></span>
+                        <input type="text" class="form-control text" :value="entry.id" readonly="readonly">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</script><script type="x-template" id="item-results-panel-template">
+    <div class="results" :class="{'compact': !exchange && layout == 'compact', 'compact two': !exchange && layout == 'compact-two'}">
+        <div class="row row-total" v-if="total != null">
+            <h3>{{ resultLabel }}</h3>
+            <template v-if="!exchange">
+            <button :title="translate('Default')" class="layout-btn layout-immersion" @click="switchLayoutToImmersion"></button>
+            <button :title="translate('Compact')" class="layout-btn layout-compact" @click="switchLayoutToCompact"></button>
+            <button :title="translate('Compact Two-Columned')" class="layout-btn layout-compact-two" @click="switchLayoutToCompactTwo"></button>
+            </template>
+        </div>
+        <resultset 
+            v-for="(result, index) in results" 
+            :index="index"
+            :search="current"
+            :state="result"
+            :sort="sort"
+            :outdated="outdated[result.id] || {}"
+            :exchange="exchange"
+            @fetch="fetchNext"
+            @sort="changeSort"
+            :key="result.id">
+        </resultset>
+    </div>
+</script>
+<script type="x-template" id="item-resultset-template">
+    <div class="resultset" :class="{'exchange': exchange}" v-infinite-scroll="fetchNext" :infinite-scroll-disabled="fetching || fetchable.length == 0">
+        <template v-for="itemId in state.result">
+        <component :is="exchange ? 'trade-exchange-item' : 'trade-item'"
+            v-if="items[itemId] || false"
+            :item-id="items[itemId].id"
+            :item="items[itemId].item"
+            :listing="items[itemId].listing"
+            :gone="items[itemId].gone || false"
+            :refreshing="isItemRefreshing(itemId)"
+            :outdated="outdated[itemId] || false"
+            :sort="sort"
+            :key="itemId"
+            @refresh="refreshTradeItem"
+            @ignore="ignoreAccount"
+            @unignore="unignoreAccount"
+            @unlist="unlistItem"
+            @sort="sortResults">
+        </component>
+        <template v-else>
+        <div v-if="items[itemId] === null" :data-id="itemId" class="row error" :class="{'refreshing': isItemRefreshing(itemId)}">
+            <button class="refresh" :class="{'refreshing': isItemRefreshing(itemId)}" @click.prevent="refreshTradeItem(itemId)"></button>
+            <h3>{{ translate('Item not found') }}</h3>
+        </div>
+        </template>
+        </template>
+        <div class="row controls" v-if="fetchable.length > 0">
+            <button class="btn load-more-btn" :disabled="fetching" @click="fetchNext">
+                <span v-if="fetching">{{ translate('Loading...') }}</span>
+                <span v-else>{{ translate('Load More') }}</span>
+            </button>
+        </div>
+    </div>
+</script>
+<div id="trade">
+    <vue-toastr ref="toastr"></vue-toastr>
+    <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <button ref="top" class="top-btn" v-cloak :title="translate('Back to Top')"></button>
+    <div class="navigation" v-cloak>
+        <ul class="nav nav-tabs main" role="tablist">
+            <li role="presentation" class="menu-search" :class="{'active': state.tab == 'search'}">
+                <a :href="'/trade/search/' + state.league" data-target="search" @click.prevent="setCurrentTab('search')" data-toggle="tab">
+                    <span>{{ translate('Search Listed Items') }}</span>
+                </a>
+            </li>
+            <li role="presentation" class="menu-exchange" :class="{'active': state.tab == 'exchange'}">
+                <a :href="'/trade/exchange/' + state.league" data-target="exchange" @click.prevent="setCurrentTab('exchange')" data-toggle="tab">
+                    <span>{{ translate('Bulk Item Exchange') }}</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav nav-tabs account" role="tablist">
+                        <li role="presentation" class="menu-about" :class="{'active': (state.tab == 'about')}">
+                <a href="/trade/about" data-target="about" @click.prevent="setCurrentTab('about')" data-toggle="tab">
+                    <span>{{ translate('About') }}</span>
+                </a>
+            </li>
+                        <li role="presentation" class="menu-settings" :class="{'active': (state.tab == 'settings')}">
+                <a href="/trade/settings" data-target="settings" @click.prevent="setCurrentTab('settings')" data-toggle="tab">
+                    <span>{{ translate('Settings') }}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="top" style="display:none;">
+        <settings-panel v-if="state.tab == 'settings'" ref="settings"></settings-panel>
+        <about-panel v-if="state.tab == 'about'" ref="about"></about-panel>
+        <item-search-panel
+            v-show="state.tab == 'search' || state.tab == 'exchange'"
+            ref="search"
+            @clear="clearState"
+            @live="toggleLive"
+            @search="doSearch"
+            @status="setCurrentStatus"
+            @item="setItem"
+            @league="setCurrentLeague">
+        </item-search-panel>
+        <pre v-if="debug">{{ JSON.stringify(query, null, '  ') }}</pre>
+    </div>
+    <div class="clear"></div>
+    <item-results-panel
+        v-show="transient.searches.length > 0"
+        v-if="state.tab == 'search' || state.tab == 'exchange'">
+    </item-results-panel>
+    <audio ref="audio" :src="audio.custom ? audio.file : distUrl(audio.file)" preload="auto"></audio>
+</div>
+                <div class="clear"></div>
+            </div>
+            <div class="bottom">
+                <span class="copyright">&#169; 2010 - 2021 <a href="http://www.grindinggear.com">Grinding Gear Games</a></span><br>
+                <span class="legal">
+                    <a href="/legal/terms-of-use-and-privacy-policy">Terms of Use, Privacy Notice and Cookies Notice</a><br>
+                </span>
+            </div>
+        </div>
+    </div>
+        <div id="poe-popup-container"></div>
+    <script type="text/javascript" src="https://web.poecdn.com/js/lib/require-2.3.2.js?v=53f6b5a112b20a13c435d7b4630b8320"></script>
+<script type="text/javascript">
+    //<!--
+                window.momentLocale = 'en_US';
+            window.momentTimezone = 'Asia/Dubai';
+            window.PoELocale = 'en_US';
+
+            require.config({
+                baseUrl: "https://web.poecdn.com/js/",
+                paths : {"plugins":"plugins.c91ccf1cd148867c51b074bea0b49eede6af3dd0","main":"main.0df75b0bdd5efd4e5d942eabb2f717a6d6949a9b","skilltree":"skilltree.f3f45496769498d6344687da4625d36770deaf0a","trade":"trade.e6b598ebc1c6f46c998dca11b26a1cd9cea58a46","itemfilter":"itemfilter.d899ed8405ff31d13bfbc6bed5e3ea14c8245615","notice":"notice.c9db72f8c4b21c28088546508836527e3913f4ec"},
+                shim: {"main":{"deps":["config","plugins"]},"plugins":{"deps":["config"]},"notice":{"deps":["config"]}}
+            });
+            require(["main"], function(){require(["trade"], function(t){    t({"tab":"search","leagues":[{"id":"Scourge","text":"Scourge"},{"id":"Hardcore Scourge","text":"Hardcore Scourge"},{"id":"Standard","text":"Standard"},{"id":"Hardcore","text":"Hardcore"}],"news":{"trade_news":{"id":1044,"url":"https:\/\/www.pathofexile.com\/forum\/view-thread\/3189660","image":"https:\/\/web.poecdn.com\/public\/news\/2021-10-24\/AtlantisMysteryBox\/Banners\/ENAtlantisFullNews.jpg"}},"league":"Scourge","state":{"type":"Stygian Vise","stats":[{"type":"and","filters":[{"id":"pseudo.pseudo_total_life","disabled":false},{"id":"explicit.stat_983749596","disabled":false},{"id":"explicit.stat_3240073117","disabled":false}],"disabled":false}],"status":"onlineleague"},"loggedIn":false});});});
+    //-->
+</script></body>
+</html>
