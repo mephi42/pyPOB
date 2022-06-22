@@ -42,8 +42,8 @@ class MockLcurlSafeEasy(LcurlSafeEasy):
 
     def perform(self):
         path = {
-            b'https://www.pathofexile.com/character-window/get-characters?accountName=AccountName&realm=pc': characters_path,
-            b'https://www.pathofexile.com/account/view-profile/AccountName': profile_path,
+            b"https://www.pathofexile.com/character-window/get-characters?accountName=AccountName&realm=pc": characters_path,
+            b"https://www.pathofexile.com/account/view-profile/AccountName": profile_path,
             b"https://www.pathofexile.com/character-window/get-passive-skills?accountName=AccountName&character=CharacterName&realm=pc": passives_path,
             b"https://www.pathofexile.com/character-window/get-items?accountName=AccountName&character=CharacterName&realm=pc": items_path,
         }[self.url]
@@ -101,7 +101,7 @@ class TestCase(unittest.TestCase):
             pob_download(self.lua, "AccountName", "CharacterName")
         pob_autoselect_main_skill(self.lua)
         self.assertEqual(
-            1921279, int(self.lua.globals().build.calcsTab.mainOutput.CombinedDPS)
+            1306512, int(self.lua.globals().build.calcsTab.mainOutput.CombinedDPS)
         )
         print(pob_export(self.lua))
 

@@ -70,7 +70,8 @@ function string.format (fmt, ...)
       end
     else
       if c == 'd' then
-        arg[argno] = math.floor(arg[argno])
+        fmt = string.sub(fmt, 1, i - 1) .. 's' .. string.sub(fmt, i + 1)
+        arg[argno] = tostring(math.floor(arg[argno]))
       end
       state = 0
       if c ~= '%' then
