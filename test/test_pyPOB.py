@@ -104,3 +104,7 @@ class TestCase(unittest.TestCase):
             1921279, int(self.lua.globals().build.calcsTab.mainOutput.CombinedDPS)
         )
         print(pob_export(self.lua))
+
+
+if __name__ == "__main__":
+    unittest.main()
