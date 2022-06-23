@@ -180,7 +180,12 @@ def pob_download(lua, account, character):
     account_name_go.onClick()
     run_sub_scripts(lua)
     char_select = import_tab.controls.charSelect
-    char_select.SelByValue(char_select, character)
+    for i in char_select.list:
+        if char_select.list[i].char.name == character.encode():
+            char_select.selIndex = i
+            break
+    else:
+        raise Exception("No such character")
     import_tab.DownloadPassiveTree(import_tab)
     run_sub_scripts(lua)
     import_tab.DownloadItems(import_tab)
