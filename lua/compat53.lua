@@ -1,5 +1,7 @@
 -- Compatibility hacks for Lua 5.3 - PoB expects Lua 5.1.
 
+require('compat52')
+
 -- From testes/bitwise.lua, commit eadd8c71.
 bit = {}
 

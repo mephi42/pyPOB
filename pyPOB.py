@@ -67,7 +67,9 @@ def make_lua():
         )
     )
 
-    if lua.lua_implementation == b"Lua 5.3":
+    if lua.lua_implementation == b"Lua 5.2":
+        lua.require(b"compat52")
+    elif lua.lua_implementation == b"Lua 5.3":
         lua.require(b"compat53")
     elif lua.lua_implementation == b"Lua 5.4":
         lua.require(b"compat54")
