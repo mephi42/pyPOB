@@ -113,7 +113,7 @@ class TestCase(unittest.TestCase):
         pob_load(self.lua, pob_xml_path)
         pob_autoselect_main_skill(self.lua)
         self.assertEqual(
-            207258, int(self.lua.globals().build.calcsTab.mainOutput.CombinedDPS)
+            287780, int(self.lua.globals().build.calcsTab.mainOutput.CombinedDPS)
         )
 
     def test_download(self):
@@ -122,7 +122,7 @@ class TestCase(unittest.TestCase):
             pob_download(self.lua, "AccountName", "CharacterName")
         pob_autoselect_main_skill(self.lua)
         self.assertEqual(
-            1306512, int(self.lua.globals().build.calcsTab.mainOutput.CombinedDPS)
+            2691128, int(self.lua.globals().build.calcsTab.mainOutput.CombinedDPS)
         )
         print(pob_export(self.lua))
 

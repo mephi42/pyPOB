@@ -121,7 +121,7 @@ def run_sub_scripts_once(lua):
             main_object.OnSubError(main_object, sub_script_id, str(exc))
         else:
             main_object = g.GetMainObject()
-            main_object.OnSubFinished(main_object, sub_script_id, result)
+            main_object.OnSubFinished(main_object, sub_script_id, *result)
 
 
 def run_sub_scripts(lua):

@@ -4,7 +4,7 @@
 <title>View Profile - Path of Exile - AccountName</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta property="fb:admins" content="100001526026598">
-<meta property="og:image" content="https://web.poecdn.com/image/favicon/ogimage.png?v=1">
+<meta property="og:image" content="https://web.poecdn.com/protected/image/favicon/ogimage.png?v=1&key=DDHQnVxwj0AxeMbsPiRoEQ">
 <meta property="og:title" content="View Profile - Path of Exile - AccountName">
 <meta property="og:site_name" content="Path of Exile">
 <meta property="og:type" content="website">
@@ -13,41 +13,44 @@
 <meta name="keywords" content="path of exile,action rpg,online rpg game,free rpg game">
 <meta name="description" content="Path of Exile is a free online-only action RPG under development by Grinding Gear Games in New Zealand.">
 <meta name="msapplication-TileColor" content="#00aba9">
-<meta name="msapplication-config" content="https://web.poecdn.com/image/favicon/browserconfig.xml?v=1">
+<meta name="msapplication-config" content="https://web.poecdn.com/protected/image/favicon/browserconfig.xml?v=1&key=_DAMEop2Q0P8drVNG22mVQ">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:locale" content="en_US"><link href="https://web.poecdn.com/css/font.css?v=4708f8d6bd53eeadc9778c148b28e361" media="screen" rel="stylesheet" type="text/css">
-<link href="https://web.poecdn.com/image/favicon/apple-touch-icon.png?v=1" rel="apple-touch-icon">
-<link href="https://web.poecdn.com/image/favicon/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180">
-<link href="https://web.poecdn.com/image/favicon/favicon-32x32.png?v=1" rel="icon" sizes="32x32" type="image/png">
-<link href="https://web.poecdn.com/image/favicon/favicon-16x16.png?v=1" rel="icon" sizes="16x16" type="image/png">
-<link href="https://web.poecdn.com/image/favicon/site.webmanifest?v=2" rel="manifest">
-<link href="https://web.poecdn.com/image/favicon/safari-pinned-tab.svg?v=1" rel="mask-icon">
-<link href="https://web.poecdn.com/image/favicon/favicon.ico?v=1" rel="shortcut icon">
-<link href="https://web.poecdn.com/css/screen.css?v=d98411f6ea0bbf0216a7ef4dd43c864f" media="screen" rel="stylesheet" type="text/css">            <script type="text/javascript">
+<meta property="og:locale" content="en_US"><link href="https://web.poecdn.com/protected/css/font.css?v=7313be5b4016fc60990fb07c8b261bda&key=4rcNCimGiCj3Ztjc_v1BUg" media="screen" rel="stylesheet" type="text/css">
+<link href="https://web.poecdn.com/protected/image/favicon/apple-touch-icon.png?v=1&key=XfoBBjuWlKs3dqMNWmRU0A" rel="apple-touch-icon">
+<link href="https://web.poecdn.com/protected/image/favicon/apple-touch-icon.png?v=1&key=XfoBBjuWlKs3dqMNWmRU0A" rel="apple-touch-icon" sizes="180x180">
+<link href="https://web.poecdn.com/protected/image/favicon/favicon-32x32.png?v=1&key=rNXughaDiygT4Cz8KFwoYQ" rel="icon" sizes="32x32" type="image/png">
+<link href="https://web.poecdn.com/protected/image/favicon/favicon-16x16.png?v=1&key=NCaCW4o5F3-ivvwRcZT3Eg" rel="icon" sizes="16x16" type="image/png">
+<link href="https://web.poecdn.com/protected/image/favicon/site.webmanifest?v=2&key=sQQh-lS6vZP2jv5iNdyGkg" rel="manifest">
+<link href="https://web.poecdn.com/protected/image/favicon/safari-pinned-tab.svg?v=1&key=MWdLhN8PhiMcJYIiTRUudQ" rel="mask-icon">
+<link href="https://web.poecdn.com/protected/image/favicon/favicon.ico?v=1&key=Hd0k46o9F-3yqJ3wD8x8gg" rel="shortcut icon">
+<link href="https://web.poecdn.com/protected/css/screen.css?v=c8254f89d0702c611d53fb52a0818fe2&key=9I1V3Qw0iKQJ2z2MI1RNWg" media="screen" rel="stylesheet" type="text/css">        <script>
+                  window['ga-disable-G-R6TM1WQ9DW'] = true;
+                </script>
+                
+                
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6TM1WQ9DW"></script>
+        
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-                ga('create', 'UA-17600449-1', {'sampleRate': 5});
-                ga('set', 'anonymizeIp', false);
-                ga('send', 'pageview');
-
-            </script></head>
+          gtag('config', 'G-R6TM1WQ9DW', '{"sampleRate":5,"allow_google_signals":false,"allow_ad_personalization_signals":false}');
+        </script></head>
 
 <body class="en_US">
     <div class="container">
         <div class="header en">
             <div class="controls">
-                <div id="statusBar"><div class="statusBarCenter"></div><div class="statusBarRight"></div><div class="row2 loggedOut"><a class="statusItem" href="/login">LOG IN</a><a class="statusItem" href="/account/create">CREATE ACCOUNT</a><a class="statusItem" href="/support">CONTACT SUPPORT</a></div></div>                                <div class="language-select"><a href="//www.pathofexile.com/account/view-profile/AccountName"><span class="us-lang active"><img src="https://web.poecdn.com/image/lang/GB.png" alt="English"></span></a>
-<a href="//br.pathofexile.com/account/view-profile/AccountName"><span class="br-lang"><img src="https://web.poecdn.com/image/lang/BR.png" alt="Português Brasileiro"></span></a>
-<a href="//ru.pathofexile.com/account/view-profile/AccountName"><span class="ru-lang"><img src="https://web.poecdn.com/image/lang/RU.png" alt="Русский"></span></a>
-<a href="//th.pathofexile.com/account/view-profile/AccountName"><span class="th-lang"><img src="https://web.poecdn.com/image/lang/TH.png" alt="ไทย"></span></a>
-<a href="//de.pathofexile.com/account/view-profile/AccountName"><span class="de-lang"><img src="https://web.poecdn.com/image/lang/DE.png" alt="Deutsch"></span></a>
-<a href="//fr.pathofexile.com/account/view-profile/AccountName"><span class="fr-lang"><img src="https://web.poecdn.com/image/lang/FR.png" alt="Français"></span></a>
-<a href="//es.pathofexile.com/account/view-profile/AccountName"><span class="es-lang"><img src="https://web.poecdn.com/image/lang/ES.png" alt="Español"></span></a>
-<a href="//poe.game.daum.net/account/view-profile/AccountName"><span class="kr-lang"><img src="https://web.poecdn.com/image/lang/KR.png" alt="한국어"></span></a>
+                <div id="statusBar"><div class="statusBarCenter"></div><div class="statusBarRight"></div><div class="row2 loggedOut"><a class="statusItem" href="https://www.pathofexile.com/login">Log In</a><a class="statusItem" href="https://www.pathofexile.com/login/create">Create Account</a><a class="statusItem" target="_blank" href="https://www.pathofexile.com/support">Contact Support</a></div></div>                                <div class="language-select"><a href="https://www.pathofexile.com/account/view-profile/AccountName"><span class="us-lang active"><img src="https://web.poecdn.com/protected/image/lang/GB.png?key=gi0WOURQcjhNWn-nXjtGKw" alt="English"></span></a>
+<a href="https://br.pathofexile.com/account/view-profile/AccountName"><span class="br-lang"><img src="https://web.poecdn.com/protected/image/lang/BR.png?key=NANHpQ35wvG8x0u8EYk9hw" alt="Português Brasileiro"></span></a>
+<a href="https://ru.pathofexile.com/account/view-profile/AccountName"><span class="ru-lang"><img src="https://web.poecdn.com/protected/image/lang/RU.png?key=QckvzIS4K--96T2zTtbrBQ" alt="Русский"></span></a>
+<a href="https://th.pathofexile.com/account/view-profile/AccountName"><span class="th-lang"><img src="https://web.poecdn.com/protected/image/lang/TH.png?key=7G3O_6azBAtd5zQDRKtzDw" alt="ไทย"></span></a>
+<a href="https://de.pathofexile.com/account/view-profile/AccountName"><span class="de-lang"><img src="https://web.poecdn.com/protected/image/lang/DE.png?key=FiiN6ZFguWXv1uayQjieGg" alt="Deutsch"></span></a>
+<a href="https://fr.pathofexile.com/account/view-profile/AccountName"><span class="fr-lang"><img src="https://web.poecdn.com/protected/image/lang/FR.png?key=2tHWKUtBPF7H88m8HQ52Rw" alt="Français"></span></a>
+<a href="https://es.pathofexile.com/account/view-profile/AccountName"><span class="es-lang"><img src="https://web.poecdn.com/protected/image/lang/ES.png?key=Q8Nw3xDO45npTzoyvLIsFA" alt="Español"></span></a>
+<a href="https://jp.pathofexile.com/account/view-profile/AccountName"><span class="jp-lang"><img src="https://web.poecdn.com/protected/image/lang/JP.png?key=uvXiESmsaodD8vqJy0U0CA" alt="日本語"></span></a>
+<a href="https://poe.game.daum.net/account/view-profile/AccountName"><span class="kr-lang"><img src="https://web.poecdn.com/protected/image/lang/KR.png?key=uiWvnUNzhAtSsclUVPPwEA" alt="한국어"></span></a>
 </div>                                <a id="mainLogoLink" href="/">
                     <span>Path of Exile</span>
                 </a>
@@ -62,11 +65,11 @@
                             </div>
             <ul class="navigation en_US">
                 <li id="nav-home"   aria-haspopup="true"><a href="https://www.pathofexile.com/"><span>Home</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/news">News</a></li><li><a href="https://www.pathofexile.com/account/create">Create Account</a></li><li><a href="https://www.pathofexile.com/login">Log In</a></li><li><a href="https://www.pathofexile.com/forum/view-forum/patch-notes">Patch Notes</a></li></ul><div class="bot"></div></div></li>
-                <li id="nav-game"   aria-haspopup="true"><a href="https://www.pathofexile.com/game"><span>Game</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/video">Videos</a></li><li class="separator"></li><li><a href="https://www.pathofexile.com/game">Overview</a></li><li><a href="https://www.pathofexile.com/passive-skill-tree">Passive Tree</a></li><li><a href="https://www.pathofexile.com/ascendancy/classes">Ascendancy Classes</a></li><li><a href="https://www.pathofexile.com/item-data">Items</a></li><li class="separator"></li><li><a href="https://www.pathofexile.com/item-filter/ladder/follower">Item Filters</a></li><li><a href="https://pathofexile.gamepedia.com/">Community Wiki</a></li></ul><div class="bot"></div></div></li>
+                <li id="nav-game"   aria-haspopup="true"><a href="https://www.pathofexile.com/game"><span>Game</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/video">Videos</a></li><li class="separator"></li><li><a href="https://www.pathofexile.com/game">Overview</a></li><li><a href="https://www.pathofexile.com/passive-skill-tree">Passive Tree</a></li><li><a href="https://www.pathofexile.com/atlas-skill-tree">Atlas Tree</a></li><li><a href="https://www.pathofexile.com/ascendancy/classes">Ascendancy Classes</a></li><li><a href="https://www.pathofexile.com/item-data">Items</a></li><li><a href="https://www.pathofexile.com/item-filter/ladder/follower">Item Filters</a></li><li class="separator"></li><li><a href="https://www.poewiki.net/">Community Wiki</a></li></ul><div class="bot"></div></div></li>
                 <li id="nav-forum"  aria-haspopup="true"><a href="https://www.pathofexile.com/forum"><span>Forum</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/forum">Index</a></li><li><a href="https://www.pathofexile.com/forum/view-thread/1457463">Code of Conduct</a></li><li><a href="https://www.pathofexile.com/search">Search</a></li></ul><div class="bot"></div></div></li>
-                <li id="nav-events" aria-haspopup="true"><a href="https://www.pathofexile.com/events"><span>Events</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/private-leagues">Private Leagues</a></li><li><a href="https://www.pathofexile.com/events">Event Calendar</a></li><li class="separator"></li><li><a href="https://www.pathofexile.com/ladder/Scourge">Scourge</a></li><li><a href="https://www.pathofexile.com/ladder/Hardcore%20Scourge">Hardcore Scourge</a></li><li><a href="https://www.pathofexile.com/ladder/Standard">Standard</a></li><li><a href="https://www.pathofexile.com/ladder/Hardcore">Hardcore</a></li><li><a href="https://www.pathofexile.com/ladder/SSF%20Scourge">SSF Scourge</a></li><li><a href="https://www.pathofexile.com/ladder/SSF%20Scourge%20HC">SSF Hardcore Scourge</a></li><li><a href="https://www.pathofexile.com/ladder/SSF%20Standard">SSF Standard</a></li><li><a href="https://www.pathofexile.com/ladder/SSF%20Hardcore">SSF Hardcore</a></li></ul><div class="bot"></div></div></li>
+                <li id="nav-events" aria-haspopup="true"><a href="https://www.pathofexile.com/events"><span>Events</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/ladders">League Ladders</a></li><li><a href="https://www.pathofexile.com/events">Season &amp; Events</a></li><li class="separator"></li><li><a href="https://www.pathofexile.com/private-leagues">My Private Leagues</a></li></ul><div class="bot"></div></div></li>
                 <li id="nav-trade"  aria-haspopup="true"><a href="https://www.pathofexile.com/trade"><span>Trade</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/trade/search">Search Items</a></li><li><a href="https://www.pathofexile.com/trade/exchange">Bulk Item Exchange</a></li><li><a href="https://www.pathofexile.com/trade/about">About</a></li></ul><div class="bot"></div></div></li>
-                <li id="nav-shop"   aria-haspopup="true"><a href="https://www.pathofexile.com/shop"><span>Shop</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/purchase">Buy Packs</a></li><li class="separator"></li><li><a href="https://www.pathofexile.com/shop">Microtransactions</a></li><li><a href="https://www.pathofexile.com/shop/category/specials">Specials</a></li></ul><div class="bot"></div></div></li>
+                <li id="nav-shop"   aria-haspopup="true"><a href="https://www.pathofexile.com/shop"><span>Shop</span></a><div class="dropDown"><div class="top"></div><ul><li><a href="https://www.pathofexile.com/purchase">Buy Packs</a></li><li><a href="https://www.pathofexile.com/vault">Kirac&#039;s Vault Pass</a></li><li class="separator"></li><li><a href="https://www.pathofexile.com/shop">Microtransactions</a></li><li><a href="https://www.pathofexile.com/shop/category/specials">Specials</a></li><li><a href="https://www.pathofexile.com/mystery-box">Mystery Box</a></li><li><a href="https://www.pathofexile.com/private-leagues/create">Private League</a></li></ul><div class="bot"></div></div></li>
             </ul>
         </div>
         <div class="content">
@@ -114,7 +117,7 @@
                 <a href="/guild/profile/487225">Inspector Cat</a>
                 <br><br>
         <strong>Forum Posts:</strong>
-        0        <small class="italic">
+        1        <small class="italic">
             (0 posts per day)
         </small>
         <br>
@@ -122,7 +125,7 @@
         <strong>Joined:</strong>
         Jun 16, 2019        <br>
         <strong>Last Visited:</strong>
-        Oct 31, 2021        <br>
+        Feb 20, 2024        <br>
     </div>
     <div class="profile-box characters">
         <h2>Characters</h2>
@@ -134,25 +137,24 @@
                         <div class="info">
                             Level 100 Juggernaut                        </div>
                         <div class="info">
-                            Scourge League                        </div>
+                            Standard League                        </div>
                     </div>
-
                                     </div>
                         </div>
 
-    <div class="profile-box achievements">
+    <div class="profile-box">
         <h2>Achievements &amp; Challenges</h2>
-                    <div class="info">
-                Challenges completed: 20/40            </div>
+                    <div class="info challenges">
+                Challenges completed: 5/40            </div>
             <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 50%">&nbsp;</div>
+                <div class="progress-bar" style="width: 12.5%">&nbsp;</div>
                 <div class="progress-frame"></div>
             </div>
         
-                            <div class="info">
-                Achievements completed: 91/123            </div>
+                    <div class="info achievements">
+                Achievements completed: 120/127            </div>
             <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 73.9837398374%">&nbsp;</div>
+                <div class="progress-bar" style="width: 94.4881889764%">&nbsp;</div>
                 <div class="progress-frame"></div>
             </div>
             </div>
@@ -161,7 +163,17 @@
         <h2>Seasons &amp; Events</h2>
         <div class="info">
             Lifetime Season Points: 0        </div>
-            </div>
+                            <div class="info">
+                Current Season Points: 0            </div>
+            <div class="info">
+                                Current Season Rank: -            </div>
+                                    <div class="info rewards">
+                Current Season Rewards: 0/0            </div>
+            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 0px">&nbsp;</div>
+                <div class="progress-frame"></div>
+                            </div>
+                    </div>
 
         </div>
 
@@ -189,7 +201,9 @@
                 <div class="details">
                                         <h1 class="name ">AccountName</h1>
                                                             <div>
-                        <a class="uiPrivateMessageButton" title="Send private message" href="/private-messages/compose/to/AccountName@pc"><span>Private Message</span></a>                                        </div>
+
+                                                <a class="uiPrivateMessageButton" title="Send private message" href="/private-messages/compose/to/AccountName@pc"><span>Private Message</span></a>                    
+                                        </div>
                                         <div class="badges clearfix"></div>                                                            
                                         <br>
                     <p><a class="bright" href="/account/view-profile/AccountName/item-filters" rel="nofollow">Item filters</a></p>
@@ -209,8 +223,8 @@
             <div class="backdrop"></div>
             <div class="wrapper">
                 <div class="sitemap">
-                    <div class="column"><h3><a href="https://www.pathofexile.com/">Home</a></h3><ul><li><a href="https://www.pathofexile.com/news">News</a></li><li><a href="https://www.pathofexile.com/account/create">Create Account</a></li><li><a href="https://www.pathofexile.com/login">Log In</a></li><li><a href="https://www.pathofexile.com/forum/view-forum/patch-notes">Patch Notes</a></li></ul></div>                    <div class="column"><h3><a href="https://www.pathofexile.com/game">Game</a></h3><ul><li><a href="https://www.pathofexile.com/video">Videos</a></li><li><a href="#"></a></li><li><a href="https://www.pathofexile.com/game">Overview</a></li><li><a href="https://www.pathofexile.com/passive-skill-tree">Passive Tree</a></li><li><a href="https://www.pathofexile.com/ascendancy/classes">Ascendancy Classes</a></li><li><a href="https://www.pathofexile.com/item-data">Items</a></li><li><a href="#"></a></li><li><a href="https://www.pathofexile.com/item-filter/ladder/follower">Item Filters</a></li><li><a href="https://pathofexile.gamepedia.com/">Community Wiki</a></li></ul></div>                    <div class="column"><h3><a href="https://www.pathofexile.com/forum">Forum</a></h3><ul><li><a href="https://www.pathofexile.com/forum">Index</a></li><li><a href="https://www.pathofexile.com/forum/view-thread/1457463">Code of Conduct</a></li><li><a href="https://www.pathofexile.com/search">Search</a></li></ul></div>                    <div class="column centerColumn"></div>
-                    <div class="column"><h3><a href="https://www.pathofexile.com/events">Events</a></h3><ul><li><a href="https://www.pathofexile.com/private-leagues">Private Leagues</a></li><li><a href="https://www.pathofexile.com/events">Event Calendar</a></li><li><a href="#"></a></li><li><a href="https://www.pathofexile.com/ladder/Scourge">Scourge</a></li><li><a href="https://www.pathofexile.com/ladder/Hardcore%20Scourge">Hardcore Scourge</a></li><li><a href="https://www.pathofexile.com/ladder/Standard">Standard</a></li><li><a href="https://www.pathofexile.com/ladder/Hardcore">Hardcore</a></li><li><a href="https://www.pathofexile.com/ladder/SSF%20Scourge">SSF Scourge</a></li><li><a href="https://www.pathofexile.com/ladder/SSF%20Scourge%20HC">SSF Hardcore Scourge</a></li><li><a href="https://www.pathofexile.com/ladder/SSF%20Standard">SSF Standard</a></li><li><a href="https://www.pathofexile.com/ladder/SSF%20Hardcore">SSF Hardcore</a></li></ul></div>                    <div class="column"><h3><a href="https://www.pathofexile.com/trade">Trade</a></h3><ul><li><a href="https://www.pathofexile.com/trade/search">Search Items</a></li><li><a href="https://www.pathofexile.com/trade/exchange">Bulk Item Exchange</a></li><li><a href="https://www.pathofexile.com/trade/about">About</a></li></ul></div>                    <div class="column"><h3><a href="https://www.pathofexile.com/shop">Shop</a></h3><ul><li><a href="https://www.pathofexile.com/purchase">Buy Packs</a></li><li><a href="#"></a></li><li><a href="https://www.pathofexile.com/shop">Microtransactions</a></li><li><a href="https://www.pathofexile.com/shop/category/specials">Specials</a></li></ul></div>                </div>
+                    <div class="column"><h3><a href="https://www.pathofexile.com/">Home</a></h3><ul><li><a href="https://www.pathofexile.com/news">News</a></li><li><a href="https://www.pathofexile.com/account/create">Create Account</a></li><li><a href="https://www.pathofexile.com/login">Log In</a></li><li><a href="https://www.pathofexile.com/forum/view-forum/patch-notes">Patch Notes</a></li></ul></div>                    <div class="column"><h3><a href="https://www.pathofexile.com/game">Game</a></h3><ul><li><a href="https://www.pathofexile.com/video">Videos</a></li><li><a href="#"></a></li><li><a href="https://www.pathofexile.com/game">Overview</a></li><li><a href="https://www.pathofexile.com/passive-skill-tree">Passive Tree</a></li><li><a href="https://www.pathofexile.com/atlas-skill-tree">Atlas Tree</a></li><li><a href="https://www.pathofexile.com/ascendancy/classes">Ascendancy Classes</a></li><li><a href="https://www.pathofexile.com/item-data">Items</a></li><li><a href="https://www.pathofexile.com/item-filter/ladder/follower">Item Filters</a></li><li><a href="#"></a></li><li><a href="https://www.poewiki.net/">Community Wiki</a></li></ul></div>                    <div class="column"><h3><a href="https://www.pathofexile.com/forum">Forum</a></h3><ul><li><a href="https://www.pathofexile.com/forum">Index</a></li><li><a href="https://www.pathofexile.com/forum/view-thread/1457463">Code of Conduct</a></li><li><a href="https://www.pathofexile.com/search">Search</a></li></ul></div>                    <div class="column centerColumn"></div>
+                    <div class="column"><h3><a href="https://www.pathofexile.com/events">Events</a></h3><ul><li><a href="https://www.pathofexile.com/ladders">League Ladders</a></li><li><a href="https://www.pathofexile.com/events">Season &amp; Events</a></li><li><a href="#"></a></li><li><a href="https://www.pathofexile.com/private-leagues">My Private Leagues</a></li></ul></div>                    <div class="column"><h3><a href="https://www.pathofexile.com/trade">Trade</a></h3><ul><li><a href="https://www.pathofexile.com/trade/search">Search Items</a></li><li><a href="https://www.pathofexile.com/trade/exchange">Bulk Item Exchange</a></li><li><a href="https://www.pathofexile.com/trade/about">About</a></li></ul></div>                    <div class="column"><h3><a href="https://www.pathofexile.com/shop">Shop</a></h3><ul><li><a href="https://www.pathofexile.com/purchase">Buy Packs</a></li><li><a href="https://www.pathofexile.com/vault">Kirac&#039;s Vault Pass</a></li><li><a href="#"></a></li><li><a href="https://www.pathofexile.com/shop">Microtransactions</a></li><li><a href="https://www.pathofexile.com/shop/category/specials">Specials</a></li><li><a href="https://www.pathofexile.com/mystery-box">Mystery Box</a></li><li><a href="https://www.pathofexile.com/private-leagues/create">Private League</a></li></ul></div>                </div>
                                 <div class="bottom">
                     
         <div class="social-icons">
@@ -220,15 +234,15 @@
             
             <a href="https://www.youtube.com/user/grindinggear" target="_blank" class="bg-youtube" title="Youtube"></a>
             <a href="https://www.twitch.tv/directory/game/Path%20of%20Exile" target="_blank" class="bg-twitch" title="Twitch"></a>
-        </div>                    <span class="copyright">&#169; 2010 - 2021 <a href="http://www.grindinggear.com">Grinding Gear Games</a></span>
+        </div>                    <span class="copyright">&#169; 2010 - 2024 <a href="http://www.grindinggear.com">Grinding Gear Games</a></span>
                     
                     <span class="legal"><a href="/legal/terms-of-use-and-privacy-policy">Terms of Use, Privacy Notice and Cookies Notice</a></span>
                     - <span><a href="/support">Contact Support</a></span>
                                         - <span><a href="/developer/docs">Developer API</a></span>
                                         <a class="logo" href="http://www.grindinggear.com">
-                        <img src="https://web.poecdn.com/image/logo/ggg-dark.png" alt="Grinding Gear Games">
+                        <img src="https://web.poecdn.com/protected/image/logo/ggg-dark.png?key=uif1P177xndMGLVAoHUXFg" alt="Grinding Gear Games">
                     </a>
-                    <small>8fb097db75913e76709064fd5c015b3e</small>
+                    <small>54ccb7e714bd592c2686653dce276661</small>
                 </div>
                                 <div class="clear"></div>
             </div>
@@ -236,8 +250,8 @@
     </div>
         <div id="poe-popup-container"></div>
     <div id="poe-modal-overlay"></div>
-    <script type="text/javascript" src="https://web.poecdn.com/js/lib/require-2.3.2.js?v=53f6b5a112b20a13c435d7b4630b8320"></script>
-<script type="text/javascript">
+        <script  src="https://web.poecdn.com/js/lib/require-2.3.2.js?v=63cff817ee978dae612936d4a88a95f8"></script>
+<script >
     //<!--
                 window.momentLocale = 'en_US';
             window.momentTimezone = 'Asia/Dubai';
@@ -245,13 +259,13 @@
 
             require.config({
                 baseUrl: "https://web.poecdn.com/js/",
-                paths : {"plugins":"plugins.c91ccf1cd148867c51b074bea0b49eede6af3dd0","main":"main.0df75b0bdd5efd4e5d942eabb2f717a6d6949a9b","skilltree":"skilltree.f3f45496769498d6344687da4625d36770deaf0a","trade":"trade.e6b598ebc1c6f46c998dca11b26a1cd9cea58a46","itemfilter":"itemfilter.d899ed8405ff31d13bfbc6bed5e3ea14c8245615","notice":"notice.c9db72f8c4b21c28088546508836527e3913f4ec"},
+                paths : {"plugins":"plugins.a0fab41f9091303fcde22ca5841d5d0d9b4c7c53","main":"main.e6449f3c0b8087103cedb99afed2b45bee7aa9db","skilltree":"skilltree.cde1876041da814b7038ffe89ac65a1a1ae29205","trade":"trade.181c6bf9c7eb87a98a6eacfedc3b10af5ee4a084","itemfilter":"itemfilter.1f799381bae84165548c4793b5345c599278303c","notice":"notice.c9db72f8c4b21c28088546508836527e3913f4ec","adminprofile":"adminprofile.a91e115f91082621cd40c6290b324605e5db25cc"},
                 shim: {"main":{"deps":["config","plugins"]},"plugins":{"deps":["config"]},"notice":{"deps":["config"]}}
             });
             require(["main"]);
     //-->
 </script>
-<script type="text/javascript">
+<script >
     //<!--
     function getShowcasePins() {
     if (!showcasePins) {
@@ -279,7 +293,7 @@ var showcasePins = false;
 getShowcasePins();
     //-->
 </script>
-<script type="text/javascript">
+<script >
     //<!--
     
     require(["main"], function() {
