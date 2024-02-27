@@ -47,6 +47,14 @@ class LcurlSafeEasy:
     def setopt_url(self, url):
         self.impl.setopt(pycurl.URL, url)
 
+    def setopt_headerfunction(self, headerfunction):
+        def wrapper(b):
+            top = headerfunction(b)
+            assert isinstance(top, bool), top
+            return len(b) if top else 0
+
+        self.impl.setopt(pycurl.HEADERFUNCTION, wrapper)
+
     def setopt_writefunction(self, writefunction):
         def wrapper(b):
             top = writefunction(b)
