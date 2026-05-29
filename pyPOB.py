@@ -6,7 +6,7 @@ import zlib
 
 import click
 import IPython
-from lupa import LuaError, LuaRuntime
+from lupa.luajit21 import LuaError, LuaRuntime
 import pycurl
 import requests
 
@@ -74,13 +74,6 @@ def make_lua():
             os.path.join(luadir, "?", "init.lua").encode(),
         )
     )
-
-    if lua.lua_implementation == b"Lua 5.2":
-        lua.require(b"compat52")
-    elif lua.lua_implementation == b"Lua 5.3":
-        lua.require(b"compat53")
-    elif lua.lua_implementation == b"Lua 5.4":
-        lua.require(b"compat54")
 
     # Lua-cURL adapter.
     g.lcurl_safe = lua.table()
