@@ -78,10 +78,19 @@ def make_lua():
     # Lua-cURL adapter.
     g.lcurl_safe = lua.table()
     g.lcurl_safe[b"easy"] = LcurlSafeEasy
+    g.lcurl_safe[b"INFO_REDIRECT_URL"] = pycurl.REDIRECT_URL
     g.lcurl_safe[b"INFO_RESPONSE_CODE"] = pycurl.RESPONSE_CODE
+    g.lcurl_safe[b"INFO_SIZE_DOWNLOAD"] = pycurl.SIZE_DOWNLOAD
     g.lcurl_safe[b"OPT_ACCEPT_ENCODING"] = pycurl.ACCEPT_ENCODING
     g.lcurl_safe[b"OPT_COOKIE"] = pycurl.COOKIE
+    g.lcurl_safe[b"OPT_FOLLOWLOCATION"] = pycurl.FOLLOWLOCATION
+    g.lcurl_safe[b"OPT_HTTPHEADER"] = pycurl.HTTPHEADER
+    g.lcurl_safe[b"OPT_IPRESOLVE"] = pycurl.IPRESOLVE
+    g.lcurl_safe[b"OPT_POST"] = pycurl.POST
+    g.lcurl_safe[b"OPT_POSTFIELDS"] = pycurl.POSTFIELDS
     g.lcurl_safe[b"OPT_PROXY"] = pycurl.PROXY
+    g.lcurl_safe[b"OPT_SSL_VERIFYHOST"] = pycurl.SSL_VERIFYHOST
+    g.lcurl_safe[b"OPT_SSL_VERIFYPEER"] = pycurl.SSL_VERIFYPEER
     g.lcurl_safe[b"OPT_USERAGENT"] = pycurl.USERAGENT
 
     return lua
@@ -142,7 +151,13 @@ def load_headless_wrapper(lua):
     prefix = "#@\n"
     assert code.startswith(prefix)
     code = code[len(prefix) :]
-    code += """
+    # GetVirtualScreenSize must be defined before HeadlessWrapper runs its
+    # OnFrame callback, which (via Launch.lua:DrawPopup) calls it.
+    code = """
+function GetVirtualScreenSize ()
+  return GetScreenSize()
+end
+""" + code + """
 function GetMainObject ()
   return mainObject
 end
